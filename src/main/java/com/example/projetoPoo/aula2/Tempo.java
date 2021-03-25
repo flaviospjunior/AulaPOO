@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 
 
 
@@ -18,7 +19,9 @@ public class Tempo {
     private static String dtMorteFormatada ;
 
     public static String getDtMorteFormatada() {
-        dtMorteFormatada = dtHoje.plusDays(80).toString();
+
+        Random rand = new Random();
+        dtMorteFormatada = dtHoje.plusDays(rand.nextInt()).toString();
         return dtMorteFormatada;
     }
 
