@@ -1,4 +1,4 @@
 package com.example.projetoPoo.aula3;
 
-public class CadastroPessoa {
+public class CadastroPessoa extends CadastroGeral {
 }
