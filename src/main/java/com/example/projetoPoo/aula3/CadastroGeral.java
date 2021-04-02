@@ -7,10 +7,6 @@ public abstract class CadastroGeral {
     private String idade;
     private String tipoDePessoa;
 
-    public void validarNumeroCadastro(String numeroDoCadastro) {
-    }
-
-
 
     public void validarTipoCadastro(String tpCadastro) {
         for (int i = 0; i < TipoDeCadastro.values().length; i++) {
