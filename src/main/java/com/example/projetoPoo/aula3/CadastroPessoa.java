@@ -4,14 +4,16 @@ public class CadastroPessoa extends CadastroGeral {
 
     static final int NUMERO_ONZE = 11;
 
-    public void validarNumeroCadastro(String numeroDoCadastro) {
+    public int[] validarNumeroCadastro(String numeroDoCadastro) {
         numeroDoCadastro = getNumeroDoCadastro();
         int numeroPosicao1;
         int numeroPosicao2;
         int contador1 = 10;
+
         int contador2 = 11;
         int somaGeral1 = 0;
-        int somaGeral2 = 0;;
+        int somaGeral2 = 0;
+
         for (int i = 0; i < 8; i++ ){
             numeroPosicao1 = Integer.parseInt(numeroDoCadastro.valueOf(numeroDoCadastro.indexOf(i))) * contador1;
             numeroPosicao2 = Integer.parseInt(numeroDoCadastro.valueOf(numeroDoCadastro.indexOf(i))) * contador2;
@@ -20,15 +22,23 @@ public class CadastroPessoa extends CadastroGeral {
             somaGeral1 = (numeroPosicao1 + somaGeral1);
             somaGeral2 = (numeroPosicao2 + somaGeral2);
         }
+        int [] somas = {somaGeral1,somaGeral2};
+        return somas;
     }
 
-    public void validarPrimeiroDigitoCPF(int somaGeral){
+    public void validarPrimeiroDigitoCPF(){
         String numeroDoCadastro = getNumeroDoCadastro();
-        int digitoVerificador = (NUMERO_ONZE -  (somaGeral % NUMERO_ONZE));
-        if (digitoVerificador <= 1) {
-            digitoVerificador = 0;
+        int [] somasGerais = validarNumeroCadastro(numeroDoCadastro);
+        int digitoVerificador1 = (NUMERO_ONZE -  (somasGerais[0] % NUMERO_ONZE));
+        if (digitoVerificador1 <= 1) {
+            digitoVerificador1 = 0;
         }
-        if ( Integer.parseInt(numeroDoCadastro.valueOf(numeroDoCadastro.indexOf(8))) != digitoVerificador){
+        int digitoVerificador2 = (NUMERO_ONZE -  (somasGerais[1] % NUMERO_ONZE));
+        if (digitoVerificador2 <= 1) {
+            digitoVerificador2 = 0;
+        }
+        if ( Integer.parseInt(numeroDoCadastro.valueOf(numeroDoCadastro.indexOf(9))) != digitoVerificador1 ||
+                Integer.parseInt(numeroDoCadastro.valueOf(numeroDoCadastro.indexOf(10))) != digitoVerificador2){
             throw new NumeroCPFInvalidoException();
         }
     }
