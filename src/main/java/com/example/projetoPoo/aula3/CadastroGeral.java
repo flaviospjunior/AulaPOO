@@ -4,9 +4,12 @@ public abstract class CadastroGeral {
     private TipoDeCadastro tipoDeCadastro;
     private String numeroDoCadastro;
     private String nome;
-    private String idade;
+    private int idade;
     private String tipoDePessoa;
 
+    public String getNumeroDoCadastro() {
+        return numeroDoCadastro;
+    }
 
     public void validarTipoCadastro(String tpCadastro) {
         for (int i = 0; i < TipoDeCadastro.values().length; i++) {
