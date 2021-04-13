@@ -9,7 +9,6 @@ public class CadastroPessoa extends CadastroGeral {
         int numeroPosicao1;
         int numeroPosicao2;
         int contador1 = 10;
-
         int contador2 = 11;
         int somaGeral1 = 0;
         int somaGeral2 = 0;
