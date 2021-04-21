@@ -9,12 +9,10 @@ public class Contatos {
         return opcaoOperacao;
     }
 
-    private int opcaoOperacao = scanner.nextInt();
-    String contato = AdicionarContato().toString();
+    private int opcaoOperacao = 1;
+
+    String nomeContato;
     String numeroTelefone;
 
-   public CharSequence AdicionarContato(){
-       CharSequence contatoDigitado = scanner.nextLine();
-       return contatoDigitado;
-    }
+
 }

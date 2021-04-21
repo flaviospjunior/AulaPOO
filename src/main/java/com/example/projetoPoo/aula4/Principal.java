@@ -12,9 +12,12 @@ import java.util.logging.Logger;
 
 public class Principal {
 
+
+
     public static Logger logger = Logger.getLogger(Principal.class.getName());
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         logger.setLevel(Level.FINEST);
         Path diretorioArquivoContatos = Path.of("src", "main", "resources", "aula4", "Contatos");  //Função responsável por criar o diretório na variável diretorioArquivoContatos
         System.out.println(diretorioArquivoContatos.toAbsolutePath());
@@ -44,10 +47,11 @@ public class Principal {
         }
         Contatos contatos = new Contatos();
 
-        if (contatos.getOpcaoOperacao()== 1){
-            System.out.println("Digite o contato:");
-
-            listagemContatos.add(contatos.contato);
+        if (contatos.getOpcaoOperacao() == 1){
+            System.out.println("Digite o nome do contato:");
+            contatos.nomeContato = scanner.nextLine();
+            listagemContatos.add(contatos.nomeContato);
+            System.out.println(listagemContatos.size());
             try {
                 Files.write(listaContatos, listagemContatos);
             } catch (IOException e) {
