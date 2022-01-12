@@ -21,16 +21,7 @@ public class CriadorArquivo {
     System.out.println(diretorioArquivoContatos.toAbsolutePath());
     List<String> listagemContatos = new ArrayList<>();
 
-    try {
-      if (Files.exists(diretorioArquivoContatos)) {
-        logger.info("Diretório já existe.");
-      } else {
-        Files.createDirectories(diretorioArquivoContatos);
-        logger.info("Diretório criado com sucesso!");
-      }
-    } catch (IOException e) {
-      logger.log(Level.SEVERE, "Não foi possível criar o diretório");
-    }
+
 
     final Path listaContatos = diretorioArquivoContatos.resolve("AgendaDeContatos.txt");
 
