@@ -15,19 +15,27 @@ import java.util.logging.Logger;
 
 public class Principal {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+  public static void main(String[] args) {
+    String tipoContato;
+    String nome;
+    String email;
 
-        CriadorArquivo.criarArquivo();
-        if (InicializadorArquivo.getData()=="[]"){
-          System.out.println("1");
-      } else System.out.println("2");
-        System.out.println(InicializadorArquivo.getData());
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("Digite o tipo de contato(PESSOAL OU PROFISSIONAL):");
+    tipoContato = scanner.nextLine();
+
+    System.out.println("Digite o nome:");
+    nome= scanner.nextLine();
+
+    System.out.println("Digite o E-mail:");
+    email = scanner.nextLine();
 
 
-        Contatos contatos = new Contatos();
+  }
+        }
 
-        /*if (contatos.getOpcaoOperacao() == 1){
+/*if (contatos.getOpcaoOperacao() == 1){
             System.out.println("Digite o nome do contato:");
             contatos.nomeContato = scanner.nextLine();
             listagemContatos.add(contatos.nomeContato);
@@ -37,11 +45,3 @@ public class Principal {
             } catch (IOException e) {
                 e.printStackTrace();
             }*/
-
-        }
-
-
-    }
-
-
-
