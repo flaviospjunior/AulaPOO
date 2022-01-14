@@ -23,7 +23,7 @@ public class CriadorArquivo {
 
 
 
-    final Path listaContatos = diretorioArquivoContatos.resolve("AgendaDeContatos.txt");
+     final Path listaContatos = diretorioArquivoContatos.resolve("AgendaDeContatos.txt");
 
      String caminhoListaContatos = listaContatos.toString();
 

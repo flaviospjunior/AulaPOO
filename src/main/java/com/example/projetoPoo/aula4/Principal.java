@@ -1,9 +1,11 @@
 package com.example.projetoPoo.aula4;
 
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,20 +18,36 @@ import java.util.logging.Logger;
 public class Principal {
 
   public static void main(String[] args) {
-    String tipoContato;
-    String nome;
-    String email;
+    CriadorArquivo.criarArquivo();
+
+    Contato contato = new Contato();
+
 
     Scanner scanner = new Scanner(System.in);
 
     System.out.println("Digite o tipo de contato(PESSOAL OU PROFISSIONAL):");
-    tipoContato = scanner.nextLine();
+    contato.nome = scanner.nextLine();
 
     System.out.println("Digite o nome:");
-    nome= scanner.nextLine();
+    contato.nome = scanner.nextLine();
 
     System.out.println("Digite o E-mail:");
-    email = scanner.nextLine();
+    contato.email = scanner.nextLine();
+
+    Contatos.contatos.add(contato.nome + "#" );
+    Contatos.contatos.add(contato.nome + "#" );
+    Contatos.contatos.add(contato.email + "#" );
+
+
+    for(String c:Contatos.contatos){
+      try {
+        Files.write(CriadorArquivo.getCaminhoArquivo(),c.getBytes(), StandardOpenOption.APPEND);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      System.out.println(c.toString());
+    }
+
 
 
   }
